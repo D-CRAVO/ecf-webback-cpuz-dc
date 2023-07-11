@@ -22,7 +22,7 @@ class CpuCollection
     {
         let cpu = {};
 
-        // implémenter ici la recherche d'un CPU par son identifiant
+        cpu = this.data.find(c => c.id === parseInt(_id));
 
         return cpu;
     }
@@ -31,6 +31,18 @@ class CpuCollection
     {
         // implémenter ici l'ajout d'un CPU dans la collection 'this.data' puis retourner le nouveau CPU ajouté
         // Pensez à générer un nouvel identifiant pour le nouveau CPU
+        if(
+            //typeof(_newCpu.ghz) === "Number"
+            // && 
+            typeof(_newCpu.brand) === "String"
+            ){
+                let length = this.data.length;
+                let lastCpu = this.findCpuById(length-1);
+                _newCpu.id = lastCpu.id + 1
+                console.log("essai");
+                this.data.push(_newCpu);
+            }
+        
 
         return _newCpu;
     }
